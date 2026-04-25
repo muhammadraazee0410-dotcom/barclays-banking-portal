@@ -2,15 +2,15 @@ import { formatCurrency, formatDate, getAccountIcon, getTransactionIcon, cn } fr
 
 describe('formatCurrency', () => {
   it('formats positive GBP amount', () => {
-    expect(formatCurrency(12847.53)).toBe('\u00a312,847.53')
+    expect(formatCurrency(12847.53)).toBe('£12,847.53')
   })
 
   it('formats negative amount with minus sign', () => {
-    expect(formatCurrency(-1524.67)).toBe('-\u00a31,524.67')
+    expect(formatCurrency(-1524.67)).toBe('-£1,524.67')
   })
 
   it('formats zero', () => {
-    expect(formatCurrency(0)).toBe('\u00a30.00')
+    expect(formatCurrency(0)).toBe('£0.00')
   })
 
   it('formats USD', () => {
@@ -18,7 +18,7 @@ describe('formatCurrency', () => {
   })
 
   it('formats EUR', () => {
-    expect(formatCurrency(100, 'EUR')).toBe('\u20ac100.00')
+    expect(formatCurrency(100, 'EUR')).toBe('€100.00')
   })
 })
 
@@ -33,22 +33,22 @@ describe('formatDate', () => {
 
 describe('getAccountIcon', () => {
   it('returns correct icons', () => {
-    expect(getAccountIcon('current')).toBe('\ud83c\udfe6')
-    expect(getAccountIcon('savings')).toBe('\ud83d\udcb0')
-    expect(getAccountIcon('credit')).toBe('\ud83d\udcb3')
-    expect(getAccountIcon('mortgage')).toBe('\ud83c\udfe0')
-    expect(getAccountIcon('unknown')).toBe('\ud83d\udcca')
+    expect(getAccountIcon('current')).toBe('🏦')
+    expect(getAccountIcon('savings')).toBe('💰')
+    expect(getAccountIcon('credit')).toBe('💳')
+    expect(getAccountIcon('mortgage')).toBe('🏠')
+    expect(getAccountIcon('unknown')).toBe('📊')
   })
 })
 
 describe('getTransactionIcon', () => {
   it('returns correct icons for known categories', () => {
-    expect(getTransactionIcon('Groceries')).toBe('\ud83d\uded2')
-    expect(getTransactionIcon('Income')).toBe('\ud83d\udcb0')
+    expect(getTransactionIcon('Groceries')).toBe('🛒')
+    expect(getTransactionIcon('Income')).toBe('💰')
   })
 
   it('returns default icon for unknown category', () => {
-    expect(getTransactionIcon('Other')).toBe('\ud83d\udcb8')
+    expect(getTransactionIcon('Other')).toBe('💸')
   })
 })
 
